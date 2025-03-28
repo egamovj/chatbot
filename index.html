@@ -13,7 +13,7 @@
           <img src="images/bot.png" alt="" class="logo-icon" />
           <h2>ChatBot</h2>
         </div>
-        <button id="close-chat">
+        <button id="clear-chat">
           <img src="images/arrow-down.png" alt="" width="24px" />
         </button>
       </div>
@@ -25,13 +25,18 @@
             How can I help you today?
           </div>
         </div>
-        <div class="message user-message">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo, quia.
-        </div>
+        <!-- <div class="message user-message">
+          
+        </div> -->
       </div>
       <div class="chat-footer">
-        <form action="" class="chat-form">
-          <input type="text" placeholder="Message..." />
+        <form action="" class="chat-form" id="chat-form">
+          <input
+            type="text"
+            placeholder="Message..."
+            class="message-input"
+            required
+          />
           <div class="chat-controls">
             <button type="button">
               <img src="images/smile-beam.png" alt="" />

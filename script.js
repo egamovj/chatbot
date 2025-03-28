@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const API_KEY = "ELdNBneJKAnOoCzmqPWsjA6t1ns62EwYlAFgtZXE"; // Cohere API kaliti
   const API_URL = "https://api.cohere.ai/v1/chat";
 
-  // 🔹 Default bot xabari
+  // Default bot xabari
   const defaultBotMessage = `<div class="message bot-message">
                                 <img src="images/bot.png" alt="" class="logo-icon logo" />
                                 <div class="message-text">
@@ -16,13 +16,13 @@ document.addEventListener("DOMContentLoaded", () => {
                                 </div>
                             </div>`;
 
-  // 🔹 Vaqt olish funksiyasi
+  // Vaqt olish funksiyasi
   const getCurrentTime = () => {
     const now = new Date();
     return now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
   };
 
-  // 🔹 "Typing..." indikatorini qo‘shish
+  // "Typing..." indikatorini qo‘shish
   const showTypingIndicator = () => {
     const typingElement = createMessageElement(
       "Bot is typing...",
@@ -33,13 +33,13 @@ document.addEventListener("DOMContentLoaded", () => {
     chatBody.scrollTop = chatBody.scrollHeight;
   };
 
-  // 🔹 "Typing..." indikatorini o‘chirish
+  // "Typing..." indikatorini o‘chirish
   const removeTypingIndicator = () => {
     const typingElement = document.querySelector(".typing");
     if (typingElement) typingElement.remove();
   };
 
-  // 🔹 Yangi xabar yaratish funksiyasi
+  // Yangi xabar yaratish funksiyasi
   const createMessageElement = (content, classes) => {
     const div = document.createElement("div");
     div.classList.add("message", classes);
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return div;
   };
 
-  // 🔹 LocalStorage uchun funksiyalar
+  // LocalStorage uchun funksiyalar
   const saveMessagesToLocal = () => {
     localStorage.setItem("chatMessages", chatBody.innerHTML);
   };
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // 🔹 Foydalanuvchi xabarini chiqarish
+  // Foydalanuvchi xabarini chiqarish
   const handleOutgoingMessage = (userMessage) => {
     const userMessageElement = createMessageElement(
       userMessage,
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
     saveMessagesToLocal();
   };
 
-  // 🔹 AI javobini olish
+  // AI javobini olish
   const getAIResponse = async (userMessage) => {
     try {
       const response = await fetch(API_URL, {
@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // 🔹 Bot javobini chiqarish
+  // Bot javobini chiqarish
   const handleIncomingMessage = async (userMessage) => {
     handleOutgoingMessage(userMessage);
     showTypingIndicator();
@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
     saveMessagesToLocal();
   };
 
-  // 🔹 Xabar yuborish
+  // Xabar yuborish
   chatForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const userMessage = messageInput.value.trim();
@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
     await handleIncomingMessage(userMessage);
   });
 
-  // 🔹 Chatni tozalash (default bot xabarini saqlash)
+  // Chatni tozalash (default bot xabarini saqlash)
   clearChatBtn.addEventListener("click", () => {
     chatBody.innerHTML = "";
     localStorage.removeItem("chatMessages");
@@ -133,6 +133,6 @@ document.addEventListener("DOMContentLoaded", () => {
     saveMessagesToLocal();
   });
 
-  // 🔹 Oldingi xabarlarni yuklash
+  // Oldingi xabarlarni yuklash
   loadMessagesFromLocal();
 });

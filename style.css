@@ -18,13 +18,15 @@ body {
   overflow: hidden;
   width: 500px;
   position: relative;
+  background-image: url(images/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .chat-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #5350c4;
   padding: 25px 20px;
 }
 
@@ -55,6 +57,7 @@ body {
   width: 35px;
   padding-top: 6px;
   cursor: pointer;
+  background-color: #0070F3;
 }
 
 .chat-body {
@@ -77,13 +80,14 @@ body {
 }
 
 .bot-message .message-text {
-  background-color: #f2f2ff;
+  background-color: #424242;
   padding: 10px;
   border-radius: 12px 12px 12px 4px;
+  color: #fff;
 }
 
 .user-message {
-  background-color: #5350c4;
+  background-color: #0070F3;
   color: #fff;
   padding: 15px;
   width: 350px;
@@ -112,6 +116,12 @@ body {
   width: 100%;
   font-size: 18px;
   padding-left: 15px;
+  background: transparent;
+  color: #fff;
+}
+
+input::placeholder {
+  color: #fff;
 }
 
 .chat-controls {
@@ -136,7 +146,7 @@ body {
 }
 
 .chat-controls .submit-message {
-  background-color: #5350c4;
+  background-color: #0070F3;
 }
 
 /* Typing indikator uchun styling */
@@ -146,7 +156,8 @@ body {
 }
 .message-time {
   font-size: 12px;
-  color: #888;
+  font-weight: 500;
+  color: #000;
   text-align: right;
   margin-top: 5px;
 }
